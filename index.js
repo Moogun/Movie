@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
+const Joi = require('joi')
 
 app.use(bodyParser.json())
 
@@ -16,6 +17,9 @@ app.get('/api/genres', (req, res) => {
 
 app.post('/api/genres', (req, res) => {
     console.log('req', req.body);
+    const { error } = validateGenre(req.body)
+    if (error) return res.status(400).send(error.details[0].message)
+    
     const genre = {
          id: genres.length + 1,
          name: req.body.name
@@ -45,3 +49,10 @@ app.delete('/api/genres/:id', (req, res) => {
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
+
+function validateGenre(genre) {
+    const schema = {
+        name: Joi.string().min(3).required()
+    }
+    return Joi.validate(genre, schema)
+}
