@@ -1,4 +1,4 @@
-const Joi = require('joi')
+const { Genre, validate } = require('../models/Genre')
 
 const genres = [
     {id: 1, name: 'Action'},
@@ -13,7 +13,7 @@ module.exports = (app) => {
 
     app.post('/api/genres', (req, res) => {
         console.log('req', req.body);
-        const { error } = validateGenre(req.body)
+        const { error } = validate(req.body)
         if (error) return res.status(400).send(error.details[0].message)
 
         const genre = {
@@ -30,7 +30,7 @@ module.exports = (app) => {
         const genre = genres.find(c => c.id === parseInt(req.params.id))
         if (!genre) return res.status(404).send('The genre was not found')
 
-        const { error } = validateGenre(req.body)
+        const { error } = validate(req.body)
         if ( error ) return res.status(400).send(error.details[0].message)
 
         genre.name = req.body.name
@@ -51,11 +51,4 @@ module.exports = (app) => {
         if(!genre) return res.status(404).send('The genre was not found')
         res.send(genre)
     })
-}
-
-function validateGenre(genre) {
-    const schema = {
-        name: Joi.string().min(3).required()
-    }
-    return Joi.validate(genre, schema)
 }
