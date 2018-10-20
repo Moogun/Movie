@@ -42,4 +42,5 @@ function validateMovie(movie) {
 
 const Movie = mongoose.model('movies', movieSchema)
 exports.Movie = Movie
+exports.movieSchema = movieSchema
 exports.validate = validateMovie
