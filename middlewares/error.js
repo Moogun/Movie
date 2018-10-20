@@ -1,3 +1,4 @@
+//This catches exceptions in the request processing pipeline only
 const winston = require('winston')
 
 module.exports = function (err, req, res, next) {
