@@ -1,4 +1,8 @@
 require('express-async-errors');
+const winston = require('winston')
+require('winston-mongodb')
+const error = require('./middlewares/error')
+
 const config = require('config')
 const express = require('express');
 const app = express();
@@ -13,11 +17,23 @@ const rentals = require('./routes/rentals')
 const users = require('./routes/users')
 const auth = require('./routes/auth')
 
-const error = require('./middlewares/error')
-
-
 const mongoose = require('mongoose')
 
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    transports: [
+        new winston.transports.File({filename: 'error.log', level: 'error'}),
+        new winston.transports.File({ filename: 'combined.log' }),
+        new winston.transports.MongoDB({db: 'mongodb://localhost:27017/movie'})
+    ]
+})
+
+if (process.env.NODE_ENV !== 'production') {
+    logger.add(new winston.transports.Console({
+        format: winston.format.simple()
+    }))
+}
 // setting env var in terminal
 // export movie_jwtPrivate Key=skey
 
