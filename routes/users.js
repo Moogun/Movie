@@ -5,6 +5,18 @@ const { User, validate } = require('../models/User')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const config = require('config')
+const auth = require('../middlewares/auth')
+
+// current user fetching route.
+// logout logic should be hanlded by client side to remove token
+// 1. do not store the token in the server
+// 2. if it is required for some reason, encrypt it,
+//
+
+router.get('/me', auth, async (req, res) => {
+    const user = await User.findById(req.user._id).select('-password')
+    res.send(user)
+})
 
 router.post('/', async (req, res) => {
     const { error } = validate(req.body)
