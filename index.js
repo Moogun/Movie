@@ -8,8 +8,8 @@ const customers = require('./routes/customers')
 const mongoose = require('mongoose')
 
 app.use(bodyParser.json())
-genres(app)
-customers(app)
+app.use('/api/genres', genres)
+app.use('/api/customers', customers)
 
 mongoose.connect('mongodb://localhost/movie')
    .then(() => console.log('connected to MongoDB'))
