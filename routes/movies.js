@@ -50,4 +50,15 @@ router.put('/:id', async (req, res) => {
     res.send(movie)
 })
 
+router.delete('/:id', async (req, res) => {
+    const movie = await Movie.findByIdAndDelete(req.params.id)
+    if (!movie) res.status(404).send('No movie found')
+    res.send(movie)
+})
+
+router.get('/:id', async (req, res) => {
+    const movie = await Movie.findById({_id: req.params.id})
+    if (!movie) return res.status(404).send('The movie with the given ID was not found.')
+    res.send(movie)
+})
 module.exports = router
