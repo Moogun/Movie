@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const Joi = require('joi')
+Joi.objectId = require('joi-objectId')(Joi)
+
 const genres = require('./routes/genres')
 const customers = require('./routes/customers')
 const movies = require('./routes/movies')
@@ -15,7 +17,7 @@ app.use('/api/customers', customers)
 app.use('/api/movies', movies)
 app.use('/api/rentals', rentals)
 
-mongoose.connect('mongodb://localhost/movie')
+mongoose.connect('mongodb://localhost/movie', {useNewUrlParser: true})
    .then(() => console.log('connected to MongoDB'))
    .catch(err => console.log('Err', err))
 

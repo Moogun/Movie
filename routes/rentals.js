@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-    
+
 })
 
 router.delete('/:id', async (req, res) => {
@@ -52,6 +52,9 @@ router.delete('/:id', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
+    const { error } = validate(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
     const rental = await Rental.findById(req.params.id)
     if (!rental) res.status(400).send('Wrong rental Id')
     res.send(rental)
