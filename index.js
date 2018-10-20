@@ -1,3 +1,4 @@
+const config = require('config')
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
@@ -12,6 +13,14 @@ const users = require('./routes/users')
 const auth = require('./routes/auth')
 
 const mongoose = require('mongoose')
+
+// setting env var in terminal
+// export movie_jwtPrivate Key=skey
+
+if (!config.get('jwtPrivateKey')) {
+    console.error('Fatal Errror', 'jwtPrivateKey is not defined');
+    process.exit(1)
+}
 
 app.use(bodyParser.json())
 app.use('/api/genres', genres)
