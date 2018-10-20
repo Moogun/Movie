@@ -20,4 +20,5 @@ function validateGenre(genre) {
 
 const Genre = mongoose.model('genres', genreSchema)
 exports.Genre = Genre
+exports.genreSchema = genreSchema
 exports.validate = validateGenre
