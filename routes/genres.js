@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router()
 const { Genre, validate } = require('../models/Genre')
+const auth = require('../middlewares/auth');
 
 router.get('/', async (req, res) => {
     const genres = await Genre.find({})
     res.send(genres)
 })
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
     console.log('req', req.body);
     const { error } = validate(req.body)
     if (error) return res.status(400).send(error.details[0].message)
