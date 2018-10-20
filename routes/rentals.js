@@ -42,15 +42,18 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-
-
+    
 })
 
 router.delete('/:id', async (req, res) => {
-
+    const rental = await Rental.findOneAndDelete(req.params.id)
+    if (!rental) res.status(400).send('Wrong rental Id')
+    res.send(rental)
 })
 
 router.get('/:id', async (req, res) => {
-
+    const rental = await Rental.findById(req.params.id)
+    if (!rental) res.status(400).send('Wrong rental Id')
+    res.send(rental)
 })
 module.exports = router
