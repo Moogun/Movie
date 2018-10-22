@@ -8,6 +8,12 @@ require('./startup/db')()
 require('./startup/config')()
 require('./startup/validation')()
 
+if (process.env.NODE_ENV !== 'production') {
+    require('./startup/prod')(app)
+}
+
+
+
 // throw new Error('sth sth')
 // setTimeout(() => {
 //     throw new Error('hello world');
