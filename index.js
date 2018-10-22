@@ -25,9 +25,12 @@ if (process.env.NODE_ENV === 'production') {
 
 const port = process.env.PORT || 3000;
 // app.listen(port, () => winston.info(`Listening on port ${port}...`));
-const server = app.listen(port, () => winston.add(
+// const server = app.listen(port, () => winston.add(
+    // new winston.transports.Console((`Listening on port ${port}...`))
+// ));
+app.listen(port, () => winston.add(
     new winston.transports.Console((`Listening on port ${port}...`))
 ));
 
 
-module.exports = server
+// module.exports = server
