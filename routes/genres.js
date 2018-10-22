@@ -5,7 +5,7 @@ const auth = require('../middlewares/auth');
 const admin = require('../middlewares/admin');
 
 router.get('/', async (req, res, next) => {
-    throw new Error('coulnt not get error')
+    // throw new Error('coulnt not get error')
     const genres = await Genre.find({})
     res.send(genres)
 })
