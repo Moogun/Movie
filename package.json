@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch",
     "dev": "nodemon index.js"
   },
   "keywords": [],
@@ -17,13 +17,16 @@
     "express": "^4.16.4",
     "express-async-errors": "^3.1.1",
     "fawn": "^2.1.5",
+    "jest": "^23.6.0",
     "joi": "^14.0.0",
     "joi-objectid": "^2.0.0",
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.3.4",
-    "nodemon": "^1.18.4",
     "winston": "^3.1.0",
     "winston-mongodb": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
   }
 }
