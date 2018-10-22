@@ -31,7 +31,6 @@ describe('/api/genres', () => {
             await genre.save()
 
             const res = await request(server).get('/api/genres/' + genre._id )
-            console.log('--slakjg', typeof res.body._id, typeof 'abc' === 'string');
             expect(res.status).toBe(200)
             expect(res.body).toHaveProperty('name', genre.name)
             // expect(res.body._id).toMatchObject(genre._id)
@@ -39,5 +38,10 @@ describe('/api/genres', () => {
             // this will fail cause genre._id prop is an obj
 
         })
+    })
+
+    it('should return 404 if no genre matched found', async () => {
+        const res = await request(server).get('/api/genres/1')
+        expect(res.status).toBe(404)
     })
 })

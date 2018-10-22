@@ -3,6 +3,7 @@ const router = express.Router()
 const { Genre, validate } = require('../models/Genre')
 const auth = require('../middlewares/auth');
 const admin = require('../middlewares/admin');
+const validateObjectId = require('../middlewares/validateObjectId');
 
 router.get('/', async (req, res, next) => {
     // throw new Error('coulnt not get error')
@@ -42,7 +43,8 @@ router.delete('/:id', [auth, admin], async (req, res) => {
     res.send(genre)
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', validateObjectId, async (req, res) => {
+
     const genre = await Genre.findById(req.params.id)
     if(!genre) return res.status(404).send('The genre was not found')
     res.send(genre)
