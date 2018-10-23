@@ -8,7 +8,7 @@ require('./startup/db')()
 require('./startup/config')()
 require('./startup/validation')()
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'production') {
     require('./startup/prod')(app)
 }
 

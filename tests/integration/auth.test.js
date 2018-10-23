@@ -4,8 +4,8 @@ const { User } = require('../../models/User');
 
 describe('auth middleware', () => {
     beforeEach(() => { server = require('../../index')})
-    afterEach(async () => {
-        server.close()
+    afterEach( async () => {
+        await server.close()
         // await Genre.remove({})
     })
 
