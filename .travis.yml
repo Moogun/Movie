@@ -19,9 +19,5 @@ notifications:
   email:
     recipients:
     - moogunjung@gmail.com
-     n_success: always
+    on_success: always
     on_failure: always
-branches:
-  only:
-  - master
-  - test-1
