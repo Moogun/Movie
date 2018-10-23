@@ -1,7 +1,7 @@
 # Movie-Rental-REST-API
 
 ## Installation and Test
-1. (Live-demo)[http://morning-mesa-94967.herokuapp.com/]
+1. [Live-demo](http://morning-mesa-94967.herokuapp.com/)
     - Visit one of API Endpoints
     - Use POSTMAN or other tools to test API Endpoints other than GET
     (without auth token, only Endpoints with GET method works)
@@ -10,12 +10,11 @@
     - npm install
     - export movie_jwtPrivateKey=anykey (without this, the app will crash)
     - npm run dev or start
-    - npm test
-    * some test may fails in the local development environment with EADDRINUSE error. This is probably because the ```server.close()``` in the ```afterEach block``` doesn't work properly, but the whole tests works fine in Travis)
+    - npm test (some test may fails in the local development environment with EADDRINUSE error. This is probably because the ```server.close()``` in the ```afterEach block``` doesn't work properly, but the whole tests works fine in Travis)
 
-3. How To Create a Auth Token with POSTMAN
-- At http://localhost:3000/api/users/
-- Send POST method with below information
+3. How To Create an Auth Token with POSTMAN
+    - At http://localhost:3000/api/users/
+    - Send POST method with below information
 ```
 {
 	"name": "moogun",
@@ -26,7 +25,7 @@
 
 - In the response, check out the headers. You will find 'x-auth-token'
 - At http://localhost:3000/api/genres/, Copy and paste the token to the header with 'x-auth-token' as a key and token as a value
-- In the body, choose raw, then JSON. Add a data like below  with genreSchema in mind
+- In the body, choose raw, then JSON. Add data like below with genreSchema in mind
 
 ```
 {
@@ -48,10 +47,10 @@ const genreSchema = new Schema({
 
 
 ## API Endpoints
-/api/genres
-/api/movies
-/api/customers
-/api/rentals
+    - /api/genres
+    - /api/movies
+    - /api/customers
+    - /api/rentals
 
 
 ## Test Samples
@@ -163,3 +162,6 @@ module.exports = function (err, req, res, next) {
     next()
 }
 ```
+
+## Credit
+This project is based on Mosh Hamedani's Udemy Course [Node.js: The Complete Guide to Build RESTful APIs (2018)](https://www.udemy.com/nodejs-master-class/learn/v4/overview)
