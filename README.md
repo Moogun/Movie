@@ -8,8 +8,10 @@
 
 2. Local Test Clone or Download the project
     - npm install
-    - export movie_jwtPrivateKey=anykey (without this, the app will crash)
+    - In terminal(Mac), export movie_jwtPrivateKey=anykey (without this, the app will crash)
+    - Run MongoDB locally
     - npm run dev or start
+    - Visit http://localhost:3000/ + API Endpoints
     - npm test (some test may fails in the local development environment with EADDRINUSE error. This is probably because the ```server.close()``` in the ```afterEach block``` doesn't work properly, but the whole tests works fine in Travis)
 
 3. How To Create an Auth Token with POSTMAN
