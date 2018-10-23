@@ -3,8 +3,8 @@
 ## Installation and Test
 1. [Live-demo](http://morning-mesa-94967.herokuapp.com/)
     - Visit one of API Endpoints
-    - Use POSTMAN or other tools to test API Endpoints other than GET
-    (without auth token, only Endpoints with GET method works)
+    - Use POSTMAN or other tools to test API Endpoints
+    (to test - /api/users, auth token is necessary. Checkout #3 How To Create an Auth Token with POSTMAN)
 
 2. Local Test Clone or Download the project
     - npm install
@@ -23,9 +23,9 @@
 }
 ```
 
-- In the response, check out the headers. You will find 'x-auth-token'
-- At http://localhost:3000/api/genres/, Copy and paste the token to the header with 'x-auth-token' as a key and token as a value
-- In the body, choose raw, then JSON. Add data like below with genreSchema in mind
+    - In the response, check out the headers. You will find 'x-auth-token'
+    - At http://localhost:3000/api/genres/, Copy and paste the token to the header with 'x-auth-token' as a key and token as a value
+    - In the body, choose raw, then JSON. Add data like below with genreSchema in mind
 
 ```
 {
@@ -51,6 +51,7 @@ const genreSchema = new Schema({
     - /api/movies
     - /api/customers
     - /api/rentals
+    - /api/users
 
 
 ## Test Samples
@@ -101,7 +102,7 @@ it('should save the genre if it is valid', async () => {
 ```
 
 
-## Error Log Sample
+## Error Log Samples
 **1. UncaughtException Error**
 
 log/exceptions.log
