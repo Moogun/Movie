@@ -6,7 +6,7 @@ const admin = require('../middlewares/admin');
 const validateObjectId = require('../middlewares/validateObjectId');
 
 router.get('/', async (req, res, next) => {
-    // throw new Error('coulnt not get error')
+    // throw new Error('genres / error thrown')
     const genres = await Genre.find({})
     res.send(genres)
 })

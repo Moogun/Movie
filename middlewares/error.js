@@ -12,6 +12,6 @@ module.exports = function (err, req, res, next) {
     // verbose
     // debug
     // silly
-    res.status(500).send('sth failed')
+    res.status(500).send('something failed')
     next()
 }

@@ -1,2 +1,2 @@
-2018-10-21 23:33:15 [31merror[39m: winston.add.Console is not a function
-2018-10-21 23:33:28 [31merror[39m: Cannot read property 'Console' of undefined
+2018-10-23 15:44:20 [31merror[39m:  Promise rejection error thrown for a test
+2018-10-23 15:44:20 [31merror[39m: an error thrown for a test

@@ -14,11 +14,10 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-// throw new Error('sth sth')
 // setTimeout(() => {
-//     throw new Error('hello world');
+//     throw new Error('an error thrown for a test');
 //   }, 250);
-// const p = Promise.reject(new Error(' miserable'))
+// const p = Promise.reject(new Error(' Promise rejection error thrown for a test'))
 // p.then(() => {
 //     console.log('done');
 // })
