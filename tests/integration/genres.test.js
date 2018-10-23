@@ -6,11 +6,11 @@ let server;
 
 describe('/api/genres', () => {
 
-    beforeEach(() => { server = require('../../index')})
+    beforeEach(() => { server = require('../../index'); })
     afterEach(async () => {
-        server.close()
-        await Genre.remove({})
-    })
+        await server.close();
+        await Genre.remove({});
+    });
 
     describe('GET /', () => {
         it('should return all genres', async () => {

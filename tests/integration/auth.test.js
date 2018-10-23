@@ -3,11 +3,11 @@ const { Genre } = require('../../models/Genre');
 const { User } = require('../../models/User');
 
 describe('auth middleware', () => {
-    beforeEach(() => { server = require('../../index')})
+    beforeEach(() => { server = require('../../index'); })
     afterEach(async () => {
-        server.close()
-        // await Genre.remove({})
-    })
+        await Genre.remove({});
+        await server.close();
+    });
 
     it('should return 401 if no token is provided', async () => {
         const token = ''
