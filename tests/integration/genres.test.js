@@ -89,6 +89,7 @@ describe('/api/genres', () => {
             const res = await request(server).post('/api/genres')
             .set('x-auth-token', token)
             .send({name: 'genre1'})
+
             const genre = Genre.find({name: 'genre1'})
 
             expect(genre).not.toBeNull()

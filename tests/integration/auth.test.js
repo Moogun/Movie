@@ -6,7 +6,7 @@ describe('auth middleware', () => {
     beforeEach(() => { server = require('../../index')})
     afterEach( async () => {
         await server.close()
-        // await Genre.remove({})
+        await Genre.remove({})
     })
 
     it('should return 401 if no token is provided', async () => {
@@ -14,7 +14,7 @@ describe('auth middleware', () => {
         const res = await request(server)
         .post('/api/genres')
         .set('x-auth-token', token)
-        .send({name: 'genre1'})
+        .send({name: 'auth test0'})
 
         expect(res.status).toBe(401)
     })
@@ -24,7 +24,7 @@ describe('auth middleware', () => {
         const res = await request(server)
         .post('/api/genres')
         .set('x-auth-token', token)
-        .send({name: 'genre1'})
+        .send({name: 'auth test1'})
 
         expect(res.status).toBe(400)
     })
@@ -34,7 +34,7 @@ describe('auth middleware', () => {
         const res = await request(server)
         .post('/api/genres')
         .set('x-auth-token', token)
-        .send({name: 'genre1'})
+        .send({name: 'auth test2'})
 
         expect(res.status).toBe(200)
     })
