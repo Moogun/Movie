@@ -12,7 +12,7 @@
     - Run MongoDB locally
     - npm run dev or start
     - Visit http://localhost:3000/ + API Endpoints
-    - npm test (some test may fails in the local development environment with EADDRINUSE error. This is probably because the ```server.close()``` in the ```afterEach block``` doesn't work properly, but the whole tests works fine in Travis)
+    - npm test
 
 3. How To Create an Auth Token with POSTMAN
     - At http://localhost:3000/api/users/
