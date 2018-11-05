@@ -25,16 +25,16 @@
     "fawn": "^2.1.5",
     "helmet": "^3.14.0",
     "jest": "^23.6.0",
-    "joi": "^14.0.0",
+    "joi": "^14.0.4",
     "joi-objectid": "^2.0.0",
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.11",
-    "mongoose": "^5.3.4",
+    "mongoose": "^5.3.9",
     "winston": "^3.1.0",
-    "winston-mongodb": "^3.0.2"
+    "winston-mongodb": "^4.0.3"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4",
+    "nodemon": "^1.18.5",
     "supertest": "^3.3.0"
   }
 }
